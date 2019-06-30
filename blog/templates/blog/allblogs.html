@@ -56,13 +56,13 @@
 <div class="container">
 <h2>Latest Posts</h2>
 <hr />
-{% for item in blogs.all %}
+{% for blog in blogs.all %}
 <!-- Start post -->
 <div>
-    <a href=""><h3>{{ item.title }}</h3></a>
-    <p>{{ item.pub_date_pretty }}</p>
-    <img class="img-fluid" src="{{ item.image.url }}" height=200 width=200 />
-    <p>{{  item.summary }}</p>
+    <a href="{% url 'detail' blog.id %}"><h3>{{ blog.title }}</h3></a>
+    <p>{{ blog.pub_date_pretty }}</p>
+    <img class="img-fluid" src="{{ blog.image.url }}" height=200 width=200 />
+    <p>{{  blog.summary }}</p>
 </div>
 <!-- end post -->
 {% endfor %}
